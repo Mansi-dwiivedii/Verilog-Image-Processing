@@ -1,50 +1,14 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 27.10.2025 18:55:36
-// Design Name: 
-// Module Name: img_read
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
-
-///////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 25.10.2025 17:05:08
-// Design Name: 
-// Module Name: img_read
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-
-//////////////////////////////////////////////////////////////////////////////////
 
 
-module img_read
-#(
+module img_read#(
     parameter WIDTH  = 768,
-         HEIGHT = 512,
-     INFILE = "C:/Users/268233/Desktop/5th sem/RGB.hex",
-     VALUE  = 100,       // brightness adjustment        // 1 = addition, 0 = subtraction
-     THRESHOLD = 90// for threshold operation
+    parameter HEIGHT = 512,
+    parameter INFILE = "C:/Users/268233/Desktop/5th sem/RGB.hex",
+    parameter VALUE  = 100,       // brightness adjustment        // 1 = addition, 0 = subtraction
+    parameter THRESHOLD = 90      // for threshold operation
       
-)
-(
+)(
     input HCLK,
     input HRESETn,
     input [1:0] sel,
@@ -59,9 +23,9 @@ module img_read
 
 
 // Internal signals
-
 parameter sizeOfLengthReal = WIDTH*HEIGHT*3; // total bytes in image
 
+	
 reg [7:0] total_memory [0 : sizeOfLengthReal-1];
 integer org_R [0:WIDTH*HEIGHT-1];
 integer org_G [0:WIDTH*HEIGHT-1];
